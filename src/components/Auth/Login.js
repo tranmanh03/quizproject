@@ -4,13 +4,18 @@ import { useNavigate } from "react-router-dom";
 import { postLogin } from "../../services/apiServices";
 import { toast } from "react-toastify";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
+import { ImSpinner10 } from "react-icons/im";
+import { useDispatch } from "react-redux";
+import { doLogin } from "../../redux/action/userAction";
 
 function Login() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [isShowPassword, setIsShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const validateEmail = (email) => {
         return String(email)
@@ -31,15 +36,19 @@ function Login() {
             toast.error("Invalid password");
             return;
         }
+        setIsLoading(true);
 
         let data = await postLogin(email, password);
         if (data && data.EC === 0) {
+            dispatch(doLogin(data));
             toast.success(data.EM);
+            setIsLoading(false);
             navigate("/");
         }
 
         if (data && data.EC !== 0) {
             toast.error(data.EM);
+            setIsLoading(false);
         }
     };
     return (
@@ -86,8 +95,13 @@ function Login() {
                 </div>
                 <span className="forgot-password">Forgot password?</span>
                 <div>
-                    <button className="btnLogin" onClick={() => handleLoggin()}>
-                        Login
+                    <button
+                        className="btnLogin"
+                        onClick={() => handleLoggin()}
+                        disabled={isLoading}
+                    >
+                        {isLoading && <ImSpinner10 className="loaderIcon" />}
+                        <span>Login</span>
                     </button>
                 </div>
                 <div className="text-center">
