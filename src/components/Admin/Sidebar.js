@@ -17,17 +17,17 @@ import {
     FaRegLaughWink,
     FaHeart,
 } from "react-icons/fa";
-// import sidebarBg from "../../assets/bg2.jpg";
 
 import { DiReact } from "react-icons/di";
 import { MdDashboard } from "react-icons/md";
 import sidebarBg from "../../assets/bg2.jpg";
 
 import "./Sidebar.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SideBar = (props) => {
     const { image, collapsed, toggled, handleToggleSidebar } = props;
+    const navigate = useNavigate();
     return (
         <>
             <ProSidebar
@@ -51,7 +51,7 @@ const SideBar = (props) => {
                         }}
                     >
                         <DiReact size={"3em"} color={"00bfff"} />
-                        <span>Quiz Project</span>
+                        <span onClick={() => navigate("/")}>Quiz Project</span>
                     </div>
                 </SidebarHeader>
 
@@ -65,11 +65,16 @@ const SideBar = (props) => {
                     <Menu iconShape="circle">
                         <SubMenu icon={<FaGem />} title="Features">
                             <MenuItem>
-                                {" "}
                                 Quản lý Users <Link to="/admin/manage-users" />
                             </MenuItem>
-                            <MenuItem> Quản lý Bài Quiz</MenuItem>
-                            <MenuItem> Quản lý Câu Hỏi</MenuItem>
+                            <MenuItem>
+                                Quản lý Bài Quiz
+                                <Link to="/admin/manage-quizzes" />
+                            </MenuItem>
+                            <MenuItem>
+                                Quản lý Câu Hỏi
+                                <Link to="/admin/manage-questions" />
+                            </MenuItem>
                         </SubMenu>
                     </Menu>
                 </SidebarContent>

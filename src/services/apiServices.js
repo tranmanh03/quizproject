@@ -38,6 +38,20 @@ const postRegister = (email, password, username) => {
 const getQuizUser = () => axios.get("api/v1/quiz-by-participant");
 const getDataQuiz = (id) => axios.get(`api/v1/questions-by-quiz?quizId=${id}`);
 
+const postSubmitQuiz = (data) => axios.post("api/v1/quiz-submit", { ...data });
+
+const postCreateNewQuiz = (description, name, difficulty, image) => {
+    const data = new FormData();
+    data.append("description", description);
+    data.append("name", name);
+    data.append("difficulty", difficulty);
+    data.append("quizImage", image);
+
+    return axios.post("api/v1/quiz", data);
+};
+
+const getAllQuiz = () => axios.get("api/v1/quiz/all");
+
 export {
     postCreateNewUser,
     getAllUsers,
@@ -47,5 +61,8 @@ export {
     postLogin,
     postRegister,
     getQuizUser,
+    postSubmitQuiz,
     getDataQuiz,
+    postCreateNewQuiz,
+    getAllQuiz,
 };
