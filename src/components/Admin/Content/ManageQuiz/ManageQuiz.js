@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import "./ManageQuiz.scss";
 import Select from "react-select";
+import "./ManageQuiz.scss";
 import { postCreateNewQuiz } from "../../../../services/apiServices";
 import { toast } from "react-toastify";
 import TableQuiz from "./TableQuiz";
 import Accordion from "react-bootstrap/Accordion";
+import QuizQA from "./QuizQA";
+import AssignQuiz from "./AssignQuiz";
 
 const options = [
     { value: "easy", label: "easy" },
@@ -132,12 +134,25 @@ function ManageQuiz() {
                                 </div>
                             </fieldset>
                         </div>
+                        <div className="list-detail">
+                            <TableQuiz />
+                        </div>
+                    </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="1">
+                    <Accordion.Header>Update Q/A Quizzes</Accordion.Header>
+                    <Accordion.Body>
+                        <QuizQA />
+                    </Accordion.Body>
+                </Accordion.Item>
+
+                <Accordion.Item eventKey="2">
+                    <Accordion.Header>Assign to Users</Accordion.Header>
+                    <Accordion.Body>
+                        <AssignQuiz />
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
-            <div className="list-detail">
-                <TableQuiz />
-            </div>
         </div>
     );
 }

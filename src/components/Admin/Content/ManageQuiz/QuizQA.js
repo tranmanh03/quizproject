@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import Select from "react-select";
-import "./Questions.scss";
+import "./QuizQA.scss";
 import { TiPlus, TiMinus } from "react-icons/ti";
 import { AiOutlineMinusCircle, AiFillPlusSquare } from "react-icons/ai";
 import { RiImageAddFill } from "react-icons/ri";
 import { v4 as uuidv4 } from "uuid";
 import _ from "lodash";
 import Lightbox from "react-awesome-lightbox";
-import { getAllQuiz, postCreateNewQuestionForQuiz, postCreateNewAnswerForQuestion } from "../../../../services/apiServices";
+import { getQuizQA, getAllQuiz, postCreateNewQuestionForQuiz, postCreateNewAnswerForQuestion } from "../../../../services/apiServices";
 import { toast } from "react-toastify";
 
-function Questions() {
+function QuizQA() {
     const initQuestions = [
         {
             id: uuidv4(),
@@ -34,6 +34,37 @@ function Questions() {
     useEffect(() => {
         fetchAllQuiz();
     }, []);
+
+    
+    useEffect(() => {
+        if(selectedQuiz && selectedQuiz.value) {
+            fetchQuizQA()
+        }
+    }, [selectedQuiz]);
+
+    function urltoFile(url, filename, mimeType) {
+        return (fetch(url)
+            .then(function(res){return res.arrayBuffer();})
+            .then(function(buf){return new File([buf], filename,{type:mimeType});})
+        );
+    }
+
+    const fetchQuizQA = async () => {
+        let res = await getQuizQA(selectedQuiz.value)
+        //convert base64 to File object
+        if(res.EC===0) {
+            let newQA = []
+            for(let i = 0; i < res.DT.qa.length; i++) {
+                let q = res.DT.qa[i]
+                if(q.imageFile) {
+                    q.imageName = `Question-${q.id}.png`
+                    q.imageFile = await urltoFile(`data:image/png;base64,${q.imageFile}`, `Question-${q.id}.png`, 'image/png')
+                }
+                newQA.push(q)
+            }
+            setQuestions(newQA)
+        }
+    }
 
     const fetchAllQuiz = async () => {
         let res = await getAllQuiz();
@@ -235,8 +266,6 @@ function Questions() {
 
     return (
         <div className="questions-container">
-            <div className="title">Manage question</div>
-            <hr />
             <div className="add-new-question">
                 <div className="col-6 form-group">
                     <label className="mb-2">Select Quiz:</label>
@@ -418,4 +447,4 @@ function Questions() {
     );
 }
 
-export default Questions;
+export default QuizQA;
