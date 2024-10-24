@@ -41,6 +41,7 @@ function DetailQuiz() {
                         item.answers.isSelected = false;
                         answers.push(item.answers);
                     });
+                    answers = _.orderBy(answers, ['id'], ['asc'])
                     return { questionID: key, answers, questionDesc, image };
                 })
                 .value();
