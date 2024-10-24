@@ -51,6 +51,12 @@ function Login() {
             setIsLoading(false);
         }
     };
+
+    const hanleOnKeyDown = (e) => {
+        if(e.key === 'Enter') {
+            handleLoggin()
+        }
+    }
     return (
         <div className="login-container">
             <div className="header col-4">
@@ -76,6 +82,7 @@ function Login() {
                         className="form-control"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        onKeyDown={(e) => hanleOnKeyDown(e)}
                     />
                     {isShowPassword ? (
                         <span

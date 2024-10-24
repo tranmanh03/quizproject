@@ -6,6 +6,7 @@ import HomePage from "./components/Home/HomePage";
 import Dashboard from "./components/Admin/Content/Dashboard";
 import ManageUser from "./components/Admin/Content/ManageUser";
 import Login from "./components/Auth/Login";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -25,10 +26,18 @@ function Layout() {
             <Routes>
                 <Route path="/" element={<App />}>
                     <Route index element={<HomePage />} />
-                    <Route path="users" element={<ListQuiz />} />
+                    <Route path="users" element={
+                        <ProtectedRoute>
+                            <ListQuiz />
+                        </ProtectedRoute>
+                    } />
                 </Route>
                 <Route path="quiz/:id" element={<DetailQuiz />} />
-                <Route path="/admin" element={<Admin />}>
+                <Route path="/admin" element={
+                    <ProtectedRoute>
+                        <Admin />
+                    </ProtectedRoute>
+                }>
                     <Route index element={<Dashboard />} />
                     <Route path="manage-users" element={<ManageUser />} />
                     <Route path="manage-quizzes" element={<ManageQuiz />} />

@@ -5,6 +5,7 @@ import _ from "lodash";
 import "./DetailQuiz.scss";
 import Question from "./Question";
 import ModalResult from "./ModalResult";
+import SibarPanel from './Content/SidebarPanel'
 
 function DetailQuiz() {
     const location = useLocation();
@@ -153,7 +154,9 @@ function DetailQuiz() {
                     </button>
                 </div>
             </div>
-            <div className="right-content">count down</div>
+            <div className="right-content">
+                <SibarPanel dataQuiz={dataQuiz} handleFinish={handleFinish} setIndex={setIndex}/>
+            </div>
             <ModalResult
                 show={isShowModalResult}
                 setShow={setIsShowModalResult}
