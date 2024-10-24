@@ -4,6 +4,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
+import '../src/ultis/i18n'
 import { store, persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import "bootstrap/dist/css/bootstrap.min.css";

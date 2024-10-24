@@ -87,7 +87,7 @@ const SideBar = (props) => {
                         }}
                     >
                         <a
-                            href="https://haryphamdev.github.io/hoidanit-udemy/"
+                            href="https://github.com/tranmanh03"
                             target="_blank"
                             className="sidebar-btn"
                             rel="noopener noreferrer"
@@ -99,7 +99,7 @@ const SideBar = (props) => {
                                     overflow: "hidden",
                                 }}
                             >
-                                &#169; ABS Company
+                                &#169; Quiz Project
                             </span>
                         </a>
                     </div>

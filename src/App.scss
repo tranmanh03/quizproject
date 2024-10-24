@@ -80,6 +80,12 @@ body {
     }
 }
 
+.languages {
+    .dropdown-toggle::after {
+        display:none;
+    }
+}
+
 
 video {
     

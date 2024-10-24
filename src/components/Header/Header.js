@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import {logout} from '../../services/apiServices'
 import { toast } from "react-toastify";
 import { doLogout } from "../../redux/action/userAction";
+import Language from "./Language";
 
 const Header = () => {
     const isAuthenticated = useSelector(
@@ -77,6 +78,7 @@ const Header = () => {
                                 </NavDropdown>
                             </>
                         )}
+                        <Language />
                     </Nav>
                 </Navbar.Collapse>
             </Container>

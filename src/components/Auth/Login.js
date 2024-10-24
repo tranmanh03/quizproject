@@ -7,6 +7,7 @@ import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { ImSpinner10 } from "react-icons/im";
 import { useDispatch } from "react-redux";
 import { doLogin } from "../../redux/action/userAction";
+import Language from "../Header/Language";
 
 function Login() {
     const [email, setEmail] = useState();
@@ -62,6 +63,7 @@ function Login() {
             <div className="header col-4">
                 <span>Don't have an account yet?</span>
                 <button onClick={() => navigate("/register")}>Signup</button>
+                <Language />
             </div>
             <div className="title col-4 mx-auto">Quiz project</div>
             <div className="welcome col-4 mx-auto">Hello, who's this?</div>
