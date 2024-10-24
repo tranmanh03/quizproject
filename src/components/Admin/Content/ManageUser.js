@@ -12,7 +12,7 @@ import {
 } from "../../../services/apiServices";
 
 function ManageUser() {
-    const LIMIT_USER = 1;
+    const LIMIT_USER = 5;
     const [pageCount, setPageCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -61,14 +61,14 @@ function ManageUser() {
     };
 
     return (
-        <div clasName="manage-user-container" style={{ padding: "15px" }}>
+        <div className="manage-user-container" style={{ padding: "15px" }}>
             <div
-                clasName="title"
+                className="title"
                 style={{ fontSize: "20px", fontWeight: "500" }}
             >
                 Manage User
             </div>
-            <div clasName="users-content">
+            <div className="users-content">
                 <div className="btn-add-new" style={{ margin: "15px 0" }}>
                     <button
                         className="btn btn-primary"

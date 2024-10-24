@@ -1,9 +1,21 @@
 .quiz-container {
-    // padding: 15px;
+    padding: 15px;
 
     .title {
         font-size: 26px;
         font-weight: 600;
+    }
+
+    ul[role="tablist"] {
+        li {
+            button {
+                color: black;
+
+                &.active {
+                    color: blue;
+                }
+            }
+        }
     }
 
     .add-new {

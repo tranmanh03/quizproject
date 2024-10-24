@@ -290,10 +290,10 @@ function QuizQA() {
                         return (
                             <div className="q-main mb-5" key={question.id}>
                                 <div className="questions-content">
-                                    <div class="form-floating description">
+                                    <div className="form-floating description">
                                         <input
                                             type="type"
-                                            class="form-control"
+                                            className="form-control"
                                             placeholder="enter your question..."
                                             value={question.description}
                                             onChange={(e) =>
@@ -374,13 +374,13 @@ function QuizQA() {
                                                         )
                                                     }
                                                 />
-                                                <div class="form-floating answer-name">
+                                                <div className="form-floating answer-name">
                                                     <input
                                                         value={
                                                             answer.description
                                                         }
                                                         type="text"
-                                                        class="form-control"
+                                                        className="form-control"
                                                         placeholder="enter your answer"
                                                         onChange={(e) =>
                                                             handleAnswerQuestion(

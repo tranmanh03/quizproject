@@ -51,7 +51,7 @@ const SideBar = (props) => {
                         }}
                     >
                         <DiReact size={"3em"} color={"00bfff"} />
-                        <span onClick={() => navigate("/")}>Quiz Project</span>
+                        <span onClick={() => navigate("/")} style={{cursor: "pointer"}}>Quiz Project</span>
                     </div>
                 </SidebarHeader>
 
