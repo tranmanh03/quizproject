@@ -1,5 +1,38 @@
 {
     "homepage": {
-        "title1": "Làm quen với khách hàng của bạn bằng các biểu mẫu đáng để điền vào"
+        "title1": "Làm quen với khách hàng của bạn bằng các biểu mẫu đáng để điền vào",
+        "title2": "Thu thập tất cả dữ liệu bạn cần để hiểu khách hàng bằng các biểu mẫu được thiết kế mới mẻ và khác biệt.",
+        "title3-1": "Bắt đầu. Nó miễn phí",
+        "title3-2": "Bắt đầu ngay"
+    },
+    "header": {
+        "home": "Trang chủ",
+        "Users": "Người dùng",
+        "Admin": "Quản trị viên",
+        "Login": "Đăng nhập",
+        "Logout": "Đăng xuất",
+        "Profile": "Trang cá nhân"
+    },
+    "login": {
+        "header_title": "Bạn chưa có tài khoản?",
+        "signup": "Đăng kí",
+        "title-quiz": "Quiz project",
+        "welcome": "Xin chào, ai đây?",
+        "password": "Mật khẩu",
+        "forgotPass": "Quên mật khẩu?",
+        "login": "Đăng nhập",
+        "gotohomepage": "Đi đến trang chủ"
+    },
+    "register": {
+        "header_title": "Bạn đã có tài khoản?",
+        "signup": "Đăng kí",
+        "title-quiz": "Quiz project",
+        "welcome": "Bắt đầu hành trình của bạn?",
+        "password": "Mật khẩu",
+        "username": "Tên người dùng",
+        "forgotPass": "Quên mật khẩu",
+        "login": "Đăng nhập",
+        "btnSubmit": "Tạo miễn phí",
+        "gotohomepage": "Đi đến trang chủ"
     }
 }   

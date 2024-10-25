@@ -1,7 +1,7 @@
 import videoHomepage from "../../assets/video-homepage.mp4";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 function HomePage() {
     const navigate = useNavigate();
@@ -21,17 +21,16 @@ function HomePage() {
                     {t('homepage.title1')}
                 </div>
                 <div className="title-2">
-                    Collect all the data you need to understand customers with
-                    forms designed to be refreshingly different.
+                    {t('homepage.title2')}
                 </div>
                 <div className="title-3">
                     {isAuthenticated === false ? (
                         <button onClick={() => navigate("/login")}>
-                            Get started. It's free
+                            {t('homepage.title3-1')}
                         </button>
                     ) : (
                         <button onClick={() => navigate("/users")}>
-                            Start Quiz Now
+                            {t('homepage.title3-2')}
                         </button>
                     )}
                 </div>

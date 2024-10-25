@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { postRegister } from "../../services/apiServices";
 import { toast } from "react-toastify";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
+import { useTranslation } from 'react-i18next';
 import Language from "../Header/Language";
 
 const Register = () => {
@@ -13,6 +14,7 @@ const Register = () => {
 
     const [isShowPassword, setIsShowPassword] = useState(false);
 
+    const { t } = useTranslation();
     const navigate = useNavigate();
 
     const validateEmail = (email) => {
@@ -50,12 +52,12 @@ const Register = () => {
     return (
         <div className="register-container">
             <div className="header">
-                <span> Already have an account?</span>
+                <span>{t('register.header_title')}</span>
                 <button onClick={() => navigate("/login")}>Log in</button>
                 <Language />
             </div>
             <div className="title col-4 mx-auto">Quiz Project</div>
-            <div className="welcome col-4 mx-auto">Start your journey?</div>
+            <div className="welcome col-4 mx-auto">{t('register.welcome')}</div>
             <div className="content-form col-4 mx-auto">
                 <div className="form-group">
                     <label>Email (*)</label>
@@ -67,7 +69,7 @@ const Register = () => {
                     />
                 </div>
                 <div className="form-group pass-group">
-                    <label>Password (*)</label>
+                    <label>{t('register.password')} (*)</label>
                     <input
                         type={isShowPassword ? "text" : "password"}
                         className="form-control"
@@ -92,7 +94,7 @@ const Register = () => {
                     )}
                 </div>
                 <div className="form-group">
-                    <label>Username</label>
+                    <label>{t('register.username')}</label>
                     <input
                         type={"text"}
                         className="form-control"
@@ -105,7 +107,7 @@ const Register = () => {
                         className="btn-submit"
                         onClick={() => handleRegister()}
                     >
-                        Create my free account
+                        {t('register.btnSubmit')}
                     </button>
                 </div>
                 <div className="text-center">
@@ -115,7 +117,7 @@ const Register = () => {
                             navigate("/");
                         }}
                     >
-                        &#60;&#60; Go to Homepage
+                        &#60;&#60; {t('register.gotohomepage')}
                     </span>
                 </div>
             </div>

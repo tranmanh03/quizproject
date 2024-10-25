@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { doLogout } from "../../redux/action/userAction";
 import Language from "./Language";
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import Profile from "./Profile";
 
 const Header = () => {
@@ -16,6 +17,8 @@ const Header = () => {
     const account = useSelector((state) => state.account.account);
     const dispatch = useDispatch()
     const navigate = useNavigate();
+
+    const { t } = useTranslation();
 
     const [isShowModalInfo, setIsShowModalInfo] = useState(false)
 
@@ -47,13 +50,13 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <NavLink to="/" className="nav-link">
-                                Home
+                                {t('header.home')}
                             </NavLink>
                             <NavLink to="/users" className="nav-link">
-                                Users
+                                {t('header.Users')}
                             </NavLink>
                             <NavLink to="/admin" className="nav-link">
-                                Admin
+                                {t('header.Admin')}
                             </NavLink>
                         </Nav>
                         <Nav>
@@ -63,13 +66,13 @@ const Header = () => {
                                         className="btn-login"
                                         onClick={() => handleLogin()}
                                     >
-                                        Log in
+                                        {t('header.Login')}
                                     </button>
                                     <button
                                         className="btn-signup"
                                         onClick={() => handleRegister()}
                                     >
-                                        Sign up
+                                        {t('header.Logout')}
                                     </button>
                                 </>
                             ) : (
@@ -78,8 +81,8 @@ const Header = () => {
                                         title="Settings"
                                         id="basic-nav-dropdown"
                                     >
-                                        <NavDropdown.Item onClick={() => setIsShowModalInfo(true)}>Profile</NavDropdown.Item>
-                                        <NavDropdown.Item onClick={() => handleLogout()}>Logout</NavDropdown.Item>
+                                        <NavDropdown.Item onClick={() => setIsShowModalInfo(true)}>{t('header.Profile')}</NavDropdown.Item>
+                                        <NavDropdown.Item onClick={() => handleLogout()}>{t('header.Logout')}</NavDropdown.Item>
                                     </NavDropdown>
                                 </>
                             )}

@@ -8,12 +8,15 @@ import { ImSpinner10 } from "react-icons/im";
 import { useDispatch } from "react-redux";
 import { doLogin } from "../../redux/action/userAction";
 import Language from "../Header/Language";
+import { useTranslation } from 'react-i18next';
 
 function Login() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [isShowPassword, setIsShowPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    
+    const { t } = useTranslation();
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -62,12 +65,12 @@ function Login() {
     return (
         <div className="login-container">
             <div className="header col-4">
-                <span>Don't have an account yet?</span>
-                <button onClick={() => navigate("/register")}>Signup</button>
+                <span>{t('login.header_title')}</span>
+                <button onClick={() => navigate("/register")}>{t('login.signup')}</button>
                 <Language />
             </div>
-            <div className="title col-4 mx-auto">Quiz project</div>
-            <div className="welcome col-4 mx-auto">Hello, who's this?</div>
+            <div className="title col-4 mx-auto">{t('login.title-quiz')}</div>
+            <div className="welcome col-4 mx-auto">{t('login.welcome')}</div>
             <div className="content-form col-4 mx-auto">
                 <div className="form-group">
                     <label>Email</label>
@@ -79,7 +82,7 @@ function Login() {
                     />
                 </div>
                 <div className="form-group pass-group">
-                    <label>Password</label>
+                    <label>{t('login.password')}</label>
                     <input
                         type={isShowPassword ? "text" : "password"}
                         className="form-control"
@@ -103,7 +106,7 @@ function Login() {
                         </span>
                     )}
                 </div>
-                <span className="forgot-password">Forgot password?</span>
+                <span className="forgot-password">{t('login.forgotPass')}</span>
                 <div>
                     <button
                         className="btnLogin"
@@ -111,12 +114,12 @@ function Login() {
                         disabled={isLoading}
                     >
                         {isLoading && <ImSpinner10 className="loaderIcon" />}
-                        <span>Login</span>
+                        <span>{t('login.login')}</span>
                     </button>
                 </div>
                 <div className="text-center">
                     &#60;&#60;
-                    <span onClick={() => navigate("/")}>Go to Homepage</span>
+                    <span onClick={() => navigate("/")}>{t('login.gotohomepage')}</span>
                 </div>
             </div>
         </div>

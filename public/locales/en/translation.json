@@ -1,5 +1,38 @@
 {
     "homepage": {
-        "title1": "Get to know your customers with forms worth filling out"
+        "title1": "Get to know your customers with forms worth filling out",
+        "title2": "Collect all the data you need to understand customers with forms designed to be refreshingly different.",
+        "title3-1": "Get started. It's free",
+        "title3-2": "Start Quiz Now"
+    },
+    "header": {
+        "home": "Home",
+        "Users": "Users",
+        "Admin": "Admin",
+        "Login": "Log in",
+        "Logout": "Logout",
+        "Profile": "Profile"
+    },
+    "login": {
+        "header_title": "Don't have an account yet?",
+        "signup": "Signup",
+        "title-quiz": "Quiz project",
+        "welcome": "Hello, who's this?",
+        "password": "Password",
+        "forgotPass": "Forgot password?",
+        "login": "Log in",
+        "gotohomepage": "Go to Homepage"
+    },
+    "register": {
+        "header_title": "Already have an account?",
+        "signup": "Signup",
+        "title-quiz": "Quiz project",
+        "welcome": "Start your journey?",
+        "password": "Password",
+        "username": "Username",
+        "forgotPass": "Forgot password?",
+        "login": "Log in",
+        "btnSubmit": "Create my free account",
+        "gotohomepage": "Go to Homepage"
     }
 }
