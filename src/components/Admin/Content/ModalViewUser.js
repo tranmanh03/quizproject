@@ -3,10 +3,10 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import _ from "lodash";
 
-const ModelViewUser = ({ show, setShow, dataUpdate, setDataUpdate }) => {
+const ModelViewUser = ({ show, setShow, dataUser, setDataUser }) => {
     const handleClose = () => {
         setShow(false);
-        setDataUpdate({});
+        setDataUser({});
     };
 
     const [email, setEmail] = useState();
@@ -16,16 +16,16 @@ const ModelViewUser = ({ show, setShow, dataUpdate, setDataUpdate }) => {
     const [previewImage, setPreviewImage] = useState();
 
     useEffect(() => {
-        if (!_.isEmpty(dataUpdate)) {
-            setEmail(dataUpdate.email);
-            setPassword(dataUpdate.password);
-            setUsername(dataUpdate.username);
-            setRole(dataUpdate.role);
-            if (dataUpdate.image) {
-                setPreviewImage(`data:image/jpeg;base64,${dataUpdate.image}`);
+        if (!_.isEmpty(dataUser)) {
+            setEmail(dataUser.email);
+            setPassword(dataUser.password);
+            setUsername(dataUser.username);
+            setRole(dataUser.role);
+            if (dataUser.image) {
+                setPreviewImage(`data:image/jpeg;base64,${dataUser.image}`);
             }
         }
-    }, [dataUpdate]);
+    }, [dataUser]);
 
     return (
         <>

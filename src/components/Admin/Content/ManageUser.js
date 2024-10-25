@@ -97,8 +97,8 @@ function ManageUser() {
                 </div>
                 <ModalViewUser
                     show={showModalViewUser}
-                    dataUpdate={dataUpdate}
-                    setDataUpdate={setDataUpdate}
+                    dataUser={dataUpdate}
+                    setDataUser={setDataUpdate}
                     setShow={setModalViewUser}
                 />
                 <ModelCreateUser

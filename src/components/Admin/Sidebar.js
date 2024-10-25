@@ -10,12 +10,7 @@ import {
 } from "react-pro-sidebar";
 
 import {
-    FaTachometerAlt,
     FaGem,
-    FaList,
-    FaGithub,
-    FaRegLaughWink,
-    FaHeart,
 } from "react-icons/fa";
 
 import { DiReact } from "react-icons/di";
@@ -25,8 +20,7 @@ import sidebarBg from "../../assets/bg2.jpg";
 import "./Sidebar.scss";
 import { Link, useNavigate } from "react-router-dom";
 
-const SideBar = (props) => {
-    const { image, collapsed, toggled, handleToggleSidebar } = props;
+const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
     const navigate = useNavigate();
     return (
         <>

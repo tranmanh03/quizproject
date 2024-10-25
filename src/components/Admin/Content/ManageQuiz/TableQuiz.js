@@ -1,18 +1,11 @@
-import { useState, useEffect } from "react";
-import { getAllQuiz } from "../../../../services/apiServices";
 
-function TableQuiz() {
-    const [listQuiz, setListQuiz] = useState([]);
-    useEffect(() => {
-        fetchAllQuiz();
-    }, []);
+function TableQuiz({setShow, setDataQuizDelete, listQuiz, handleCliclBtnUpdate}) {
+    
 
-    const fetchAllQuiz = async () => {
-        let res = await getAllQuiz();
-        if (res && res.EC === 0) {
-            setListQuiz(res.DT);
-        }
-    };
+    const handleClickBtnDelete = (quiz) => {
+        setDataQuizDelete(quiz)
+        setShow(true)
+    }
     return (
         <>
             <div>List quiz:</div>
@@ -35,10 +28,10 @@ function TableQuiz() {
                                 <td>{item.description}</td>
                                 <td>{item.difficulty}</td>
                                 <td style={{ display: "flex", gap: "15px" }}>
-                                    <button className="btn btn-warning">
+                                    <button className="btn btn-warning" onClick={() => handleCliclBtnUpdate(item)}>
                                         Edit
                                     </button>
-                                    <button className="btn btn-danger">
+                                    <button className="btn btn-danger" onClick={() => handleClickBtnDelete(item)}>
                                         Delete
                                     </button>
                                 </td>
